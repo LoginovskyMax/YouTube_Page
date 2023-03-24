@@ -11,25 +11,25 @@ interface Thumbnail {
     maxres: ThumbnailItem;
 }
 interface Statistics {
-    viewCount: number;
-    likeCount: number;
-    dislikeCount: number;
-    favoriteCount: number;
-    commentCount: number;
+    viewCount: string;
+    likeCount: string;
+    dislikeCount: string;
+    favoriteCount: string;
+    commentCount: string;
 }
 interface Localized {
     title: string;
     description: string;
 }
 interface Snipet {
-    publishedAt: Date;
+    publishedAt: string;
     channelId: string;
     title: string;
     description: string;
     thumbnails: Thumbnail;
     channelTitle: string;
     tags: string[];
-    categoryId: number;
+    categoryId: string;
     liveBroadcastContent: string;
     localized: Localized;
     defaultAudioLanguage: string;
