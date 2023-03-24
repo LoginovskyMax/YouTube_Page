@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SearchItem } from '../search-item.model';
 
 @Component({
@@ -7,11 +7,12 @@ import { SearchItem } from '../search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
-  // data:SearchItem 
+  @Input() card: SearchItem|null = null
 
-  constructor(){
+  constructor() {
 
   }
+
   ngOnInit(): void {
   }
 }
