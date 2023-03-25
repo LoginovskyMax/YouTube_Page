@@ -1,0 +1,19 @@
+.filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-right: 120px;
+    &__title{
+        font-weight: bold;
+    }
+    &__input{
+        border: none;
+        border-radius: 5px;
+        padding: 0 15px;
+    }
+    &__inp{
+        display: flex;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+.search-block{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &__input{
+        padding: 0 15px;
+        width: 300px;
+        height: 32px;
+        border: none;
+        border-radius: 5px;
+    }
+    &__inp-block{
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    &__icon{
+        position: absolute;
+        right: 10px;
+    }
+}

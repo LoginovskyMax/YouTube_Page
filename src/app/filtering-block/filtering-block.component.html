@@ -1,28 +1,22 @@
-<mat-accordion>
-    <mat-expansion-panel [hideToggle]="false" (opened)='panelState = true'  (closed)='panelState = true' > 
-        <mat-expansion-panel-header>
-            <mat-panel-title>Filter</mat-panel-title>
-        </mat-expansion-panel-header>
-     
-       <div>
-        <button type="button" mat-raised-button color="primary" (click)="sortBy('like')">
+   <div class="filter" *ngIf="show">
+      <p class="filter__title">Sort by : </p>
+        <button type="button" mat-stroked-button color="primary" (click)="sortBy('like')">
             Likes
             <mat-icon>{{like ? 'trending_up' : 'trending_down'}}</mat-icon>
         </button>
-        <button type="button" mat-raised-button color="primary" (click)="sortBy('views')">
+        <button type="button" mat-stroked-button color="primary" (click)="sortBy('views')">
             Views
-            <mat-icon>{{views ? 'trending_up' : 'trending_down'}}</mat-icon>
+            <mat-icon width="5">{{views ? 'trending_up' : 'trending_down'}}</mat-icon> 
         </button>
-        <button type="button" mat-raised-button color="primary" (click)="sortBy('date')">
+        <button type="button" mat-stroked-button color="primary" (click)="sortBy('date')">
             Date
             <mat-icon>{{date ? 'trending_up' : 'trending_down'}}</mat-icon>
         </button>
-        <mat-form-field appearance="outline"> 
-            <mat-label>Filter by</mat-label>
-            <input matInput placeholder="Filter by..." (keyup)="handleInp($event)" [(ngModel)]="inputValue">
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
+        <div class="filter__inp">
+            <button type="button" mat-stroked-button color="primary" (click)="filterCards(inputValue)">By word</button> 
+            <input matInput [(ngModel)]="inputValue" class="filter__input">
+            
+        </div>
+
+     
     </div>
-    </mat-expansion-panel>
-   
-</mat-accordion>

@@ -7,7 +7,10 @@ module.exports = {
     },
     rules: {
     "global-require": "off",
-    "import/extensions":"off"
+    "import/extensions":"off",
+    "no-empty-function":"off",
+    "no-unused-expressions":"off",
+    "@typescript-eslint/no-useless-constructor":"off"
   },
    ignorePatterns: ["dist"],
   };

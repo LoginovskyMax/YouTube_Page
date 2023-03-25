@@ -1,6 +1,29 @@
 .header{
+    padding: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    background-color: rgb(190, 196, 196);
+    box-sizing: border-box;
+    &__wrap{
+        display: flex;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    &__search{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+    &__input_block{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 }

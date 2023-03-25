@@ -1,5 +1,10 @@
 .wrap{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px auto;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }

@@ -22,7 +22,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -32,7 +32,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
 })
 export class MaterialUIModule { }

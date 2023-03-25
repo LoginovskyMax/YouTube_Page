@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-settings-button',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings-button.component.scss'],
 })
 export class SettingsButtonComponent implements OnInit {
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  showSortBlock() {
+    this.data.showSettings();
   }
 }

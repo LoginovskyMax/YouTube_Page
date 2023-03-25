@@ -1,8 +1,8 @@
-<div>
-    <mat-form-field appearance="outline"> 
-        <mat-label>Find your video</mat-label>
-        <input matInput placeholder="Search..." [(ngModel)]="inputValue">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    <button mat-raised-button color="primary"  type="buttton" (click)="findVideo()">Search</button>
+<div class="search-block">
+    <div class="search-block__inp-block">
+        <input placeholder="Search..." [(ngModel)]="inputValue" class="search-block__input">
+        <mat-icon matSuffix class="search-block__icon">search</mat-icon>
+    </div>
+        
+    <button mat-raised-button color="primary"  type="button" (click)="findVideo()">Search</button>
 </div>

@@ -1,30 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { SearchItem } from '../search-item.model';
-import { SearchResponse } from '../search-response.model';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit, OnDestroy {
+export class SearchResultsComponent implements OnInit {
   dataArr: SearchItem[] = []
-  sortCriteria:string = ''
+
+  sortCriteria = ''
 
   constructor(private data: DataService) {
-    this.data.data.subscribe((data) => {
-      this.dataArr = data;
+    this.data.data.subscribe((val) => {
+      this.dataArr = val;
     });
-    this.data.sortCriteria.subscribe((data) => {
-      this.sortCriteria = data;
+    this.data.sortCriteria.subscribe((val) => {
+      this.sortCriteria = val;
     });
   }
 
   ngOnInit(): void {
-  }
-
-  ngOnDestroy(): void {
-
   }
 }

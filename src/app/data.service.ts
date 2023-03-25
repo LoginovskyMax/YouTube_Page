@@ -12,19 +12,37 @@ export class DataService {
 
   cardArr: SearchItem[] = this.resp.items
 
+  findingCards: SearchItem[] = []
+
   data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([])
 
   sortCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
+  filterCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
+
+  showSettingBlock: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+
   findCards(text: string) {
-    let filteredArr = this.cardArr.filter((card) => card.snippet.title.toLowerCase().includes(text.toLowerCase()));
-    if(text === '')filteredArr = []
+    let filteredArr = this.cardArr.filter((card) => card.snippet.title
+      .toLowerCase().includes(text.toLowerCase()));
+    if (text === '')filteredArr = [];
     this.data.next(filteredArr);
+    this.findingCards = this.data.getValue();
   }
 
-  sortCards(text:string){
+  sortCards(text: string) {
     this.sortCriteria.next(text);
   }
 
-  constructor() { }
+  filterCards(text: string) {
+    let filteredArr = this.findingCards
+      .filter((card) => card.snippet.title.toLowerCase()
+        .includes(text.toLowerCase()));
+    if (text === '')filteredArr = this.findingCards;
+    this.data.next(filteredArr);
+  }
+
+  showSettings() {
+    this.showSettingBlock.next(!this.showSettingBlock.getValue());
+  }
 }
