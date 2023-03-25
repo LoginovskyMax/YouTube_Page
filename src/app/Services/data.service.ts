@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import * as responses from '../assets/response.json';
-import { SearchResponse } from './search/search-response.model';
-import { SearchItem } from './search/search-item.model';
+import * as responses from '../../assets/response.json';
+import { SearchResponse } from '../search/search-response.model';
+import { SearchItem } from '../search/search-item.model';
 
 @Injectable({
   providedIn: 'root',

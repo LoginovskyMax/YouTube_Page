@@ -13,8 +13,8 @@ import { SearchComponent } from './header/search/search.component';
 import { LoginInfoComponent } from './header/login-info/login-info.component';
 import { SettingsButtonComponent } from './header/settings-button/settings-button.component';
 import { MaterialUIModule } from './material-ui/material-ui.module';
-import { FilteringBlockComponent } from './filtering-block/filtering-block.component';
-import { SortingPipe } from './sorting.pipe';
+import { FilteringBlockComponent } from './header/filtering-block/filtering-block.component';
+import { SortingPipe } from './Pipes/sorting.pipe';
 import { ColorDirective } from './color.directive';
 
 @NgModule({
