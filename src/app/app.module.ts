@@ -13,6 +13,8 @@ import { SearchComponent } from './header/search/search.component';
 import { LoginInfoComponent } from './header/login-info/login-info.component';
 import { SettingsButtonComponent } from './header/settings-button/settings-button.component';
 import { MaterialUIModule } from './material-ui/material-ui.module';
+import { FilteringBlockComponent } from './filtering-block/filtering-block.component';
+import { SortingPipe } from './sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { MaterialUIModule } from './material-ui/material-ui.module';
     SearchComponent,
     LoginInfoComponent,
     SettingsButtonComponent,
+    FilteringBlockComponent,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,

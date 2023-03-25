@@ -10,10 +10,14 @@ import { SearchResponse } from '../search-response.model';
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
   dataArr: SearchItem[] = []
+  sortCriteria:string = ''
 
   constructor(private data: DataService) {
     this.data.data.subscribe((data) => {
       this.dataArr = data;
+    });
+    this.data.sortCriteria.subscribe((data) => {
+      this.sortCriteria = data;
     });
   }
 

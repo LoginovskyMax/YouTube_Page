@@ -14,9 +14,16 @@ export class DataService {
 
   data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([])
 
+  sortCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
+
   findCards(text: string) {
-    const filteredArr = this.cardArr.filter((card) => card.snippet.title.includes(text));
+    let filteredArr = this.cardArr.filter((card) => card.snippet.title.toLowerCase().includes(text.toLowerCase()));
+    if(text === '')filteredArr = []
     this.data.next(filteredArr);
+  }
+
+  sortCards(text:string){
+    this.sortCriteria.next(text);
   }
 
   constructor() { }

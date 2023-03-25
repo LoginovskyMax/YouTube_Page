@@ -1,0 +1,23 @@
+<mat-accordion>
+    <mat-expansion-panel [hideToggle]="false" (opened)='panelState = true'  (closed)='panelState = true' > 
+        <mat-expansion-panel-header>
+            <mat-panel-title>Filter</mat-panel-title>
+        </mat-expansion-panel-header>
+     
+       <div>
+        <button type="button" mat-raised-button color="primary" (click)="sortBy('like')">
+            Likes
+            <mat-icon>{{like ? 'trending_up' : 'trending_down'}}</mat-icon>
+        </button>
+        <button type="button" mat-raised-button color="primary" (click)="sortBy('views')">
+            Views
+            <mat-icon>{{views ? 'trending_up' : 'trending_down'}}</mat-icon>
+        </button>
+        <button type="button" mat-raised-button color="primary" (click)="sortBy('date')">
+            Date
+            <mat-icon>{{date ? 'trending_up' : 'trending_down'}}</mat-icon>
+        </button>
+    </div>
+    </mat-expansion-panel>
+   
+</mat-accordion>
