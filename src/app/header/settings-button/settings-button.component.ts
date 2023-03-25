@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from 'src/app/Services/data.service';
   templateUrl: './settings-button.component.html',
   styleUrls: ['./settings-button.component.scss'],
 })
-export class SettingsButtonComponent implements OnInit {
+export class SettingsButtonComponent implements OnInit, OnDestroy {
   constructor(private data: DataService) { }
 
   ngOnInit(): void {
@@ -14,5 +14,9 @@ export class SettingsButtonComponent implements OnInit {
 
   showSortBlock() {
     this.data.showSettings();
+  }
+
+  ngOnDestroy(): void {
+
   }
 }

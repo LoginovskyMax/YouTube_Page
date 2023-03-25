@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { SearchItem } from '../search-item.model';
 
@@ -7,7 +7,7 @@ import { SearchItem } from '../search-item.model';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
   dataArr: SearchItem[] = []
 
   sortCriteria = ''
@@ -22,5 +22,8 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
   }
 }

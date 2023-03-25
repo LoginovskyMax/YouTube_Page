@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from 'src/app/Services/data.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnDestroy {
   inputValue = ''
 
   constructor(private data: DataService) {
@@ -15,5 +15,9 @@ export class SearchComponent {
 
   findVideo() {
     this.data.findCards(this.inputValue);
+  }
+
+  ngOnDestroy(): void {
+
   }
 }

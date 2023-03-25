@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { DataService } from '../../Services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../../Services/data.service';
   templateUrl: './filtering-block.component.html',
   styleUrls: ['./filtering-block.component.scss'],
 })
-export class FilteringBlockComponent {
+export class FilteringBlockComponent implements OnDestroy {
   panelState = false
 
   like = false
@@ -43,5 +43,9 @@ export class FilteringBlockComponent {
 
   filterCards(text: string) {
     this.data.filterCards(text);
+  }
+
+  ngOnDestroy(): void {
+
   }
 }
