@@ -20,7 +20,4 @@ export class SearchComponent implements OnInit {
     this.data.findCards(this.inputValue);
   }
 
-  handleInp(e: KeyboardEvent) {
-    console.log((e.target as HTMLInputElement).value);
-  }
 }

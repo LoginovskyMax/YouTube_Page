@@ -1,7 +1,7 @@
 <div>
     <mat-form-field appearance="outline"> 
         <mat-label>Find your video</mat-label>
-        <input matInput placeholder="Search..." (keyup)="handleInp($event)" [(ngModel)]="inputValue">
+        <input matInput placeholder="Search..." [(ngModel)]="inputValue">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <button mat-raised-button color="primary"  type="buttton" (click)="findVideo()">Search</button>

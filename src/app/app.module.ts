@@ -15,6 +15,7 @@ import { SettingsButtonComponent } from './header/settings-button/settings-butto
 import { MaterialUIModule } from './material-ui/material-ui.module';
 import { FilteringBlockComponent } from './filtering-block/filtering-block.component';
 import { SortingPipe } from './sorting.pipe';
+import { ColorDirective } from './color.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SortingPipe } from './sorting.pipe';
     SettingsButtonComponent,
     FilteringBlockComponent,
     SortingPipe,
+    ColorDirective,
   ],
   imports: [
     BrowserModule,

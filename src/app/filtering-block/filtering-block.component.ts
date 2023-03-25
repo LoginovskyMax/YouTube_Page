@@ -6,15 +6,15 @@ import { DataService } from '../data.service';
   templateUrl: './filtering-block.component.html',
   styleUrls: ['./filtering-block.component.scss']
 })
-export class FilteringBlockComponent implements OnInit {
+export class FilteringBlockComponent {
   panelState = false
   like = false
   views = false
   date = false
+  inputValue = ''
   constructor(private data:DataService) { }
 
-  ngOnInit(): void {
-  }
+
 
   sortBy(text:string){
      if(text === 'like'){
@@ -33,6 +33,10 @@ export class FilteringBlockComponent implements OnInit {
       this.data.sortCards('dateDown')
     }
      
+  }
+
+  handleInp(e: KeyboardEvent) {
+    console.log((e.target as HTMLInputElement).value);
   }
 
 }

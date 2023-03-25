@@ -17,6 +17,11 @@
             Date
             <mat-icon>{{date ? 'trending_up' : 'trending_down'}}</mat-icon>
         </button>
+        <mat-form-field appearance="outline"> 
+            <mat-label>Filter by</mat-label>
+            <input matInput placeholder="Filter by..." (keyup)="handleInp($event)" [(ngModel)]="inputValue">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
     </div>
     </mat-expansion-panel>
    

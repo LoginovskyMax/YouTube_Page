@@ -1,4 +1,21 @@
-<div>
+<div class="wrap">
     <p>{{card?.snippet?.title}}</p>
     <img [src]="card?.snippet?.thumbnails?.default?.url" alt="preview">
+    <div class="statistics">
+       <div>
+        {{card?.statistics?.likeCount}}<mat-icon>thumb_up</mat-icon> 
+       </div> 
+       <div>
+        {{card?.statistics?.dislikeCount}}<mat-icon>thumb_down</mat-icon> 
+       </div> 
+       <div>
+        Views:{{card?.statistics?.viewCount}}
+       </div> 
+       <div>
+        Comments:{{card?.statistics?.commentCount}}
+       </div> 
+     
+    </div>
+    <button type="button" mat-raised-button color="primary">More</button>
+    <div class="bottom_line" [appColor]="card?.snippet?.publishedAt"></div>
 </div>
