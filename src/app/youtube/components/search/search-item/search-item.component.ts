@@ -1,7 +1,7 @@
 import {
   Component, Input, OnDestroy, OnInit,
 } from '@angular/core';
-import { SearchItem } from '../search-item.model';
+import { SearchItem } from '../../../models/search-item.model';
 
 @Component({
   selector: 'app-search-item',

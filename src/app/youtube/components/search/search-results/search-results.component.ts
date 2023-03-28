@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DataService } from 'src/app/Services/data.service';
-import { SearchItem } from '../search-item.model';
+import { DataService } from 'src/app/youtube/Services/data.service';
+import { SearchItem } from '../../../models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
