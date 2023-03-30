@@ -5,14 +5,14 @@ import { StatisticsComponent } from './Components/statistics/statistics.componen
 
 @NgModule({
   declarations: [
-    StatisticsComponent
+    StatisticsComponent,
   ],
-  imports: [ 
+  imports: [
     CommonModule,
-    MaterialUIModule
+    MaterialUIModule,
   ],
-  exports:[
-    StatisticsComponent
-  ]
+  exports: [
+    StatisticsComponent,
+  ],
 })
 export class SharedModule { }

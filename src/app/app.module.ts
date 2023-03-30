@@ -6,12 +6,12 @@ import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule 
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

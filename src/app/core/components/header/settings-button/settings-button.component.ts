@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DataService } from 'src/app/youtube/Services/data.service'
+import { DataService } from 'src/app/youtube/Services/data.service';
 
 @Component({
   selector: 'app-settings-button',

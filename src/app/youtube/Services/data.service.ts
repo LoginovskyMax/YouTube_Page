@@ -14,7 +14,7 @@ export class DataService {
 
   findingCards: SearchItem[] = []
 
-  data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([]) 
+  data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([])
 
   sortCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
@@ -46,8 +46,8 @@ export class DataService {
     this.showSettingBlock.next(!this.showSettingBlock.getValue());
   }
 
-  getVideoDetails(id:string){
-   const video =  this.findingCards.find(card=>card.id === id)
-   return video
+  getVideoDetails(id: string) {
+    const video = this.findingCards.find((card) => card.id === id);
+    return video;
   }
 }

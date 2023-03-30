@@ -12,7 +12,7 @@ import { SearchItem } from '../../../models/search-item.model';
 export class SearchItemComponent implements OnInit, OnDestroy {
   @Input() card: SearchItem|null = null
 
-  constructor( private router: Router) {
+  constructor(private router: Router) {
 
   }
 
@@ -22,7 +22,7 @@ export class SearchItemComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
-  goToDetailed(id:string|undefined){
-    if(id)this.router.navigate([`video/${id}`]);
+  goToDetailed(id: string|undefined) {
+    if (id) this.router.navigate([`video/${id}`]);
   }
 }

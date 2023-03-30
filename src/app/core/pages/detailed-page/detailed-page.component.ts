@@ -6,25 +6,26 @@ import { SearchItem } from 'src/app/youtube/models/search-item.model';
 @Component({
   selector: 'app-detailed-page',
   templateUrl: './detailed-page.component.html',
-  styleUrls: ['./detailed-page.component.scss']
+  styleUrls: ['./detailed-page.component.scss'],
 })
 export class DetailedPageComponent implements OnInit {
   id = ''
-  videoData:SearchItem|undefined
+
+  videoData: SearchItem|undefined
+
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private data:DataService) {
+              private data: DataService) {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
     });
-    this.videoData = this.data.getVideoDetails(this.id)
-   }
+    this.videoData = this.data.getVideoDetails(this.id);
+  }
 
   ngOnInit(): void {
   }
 
-  goToMain(){
-      this.router.navigate([`main`])
+  goToMain() {
+    this.router.navigate(['main']);
   }
-
 }

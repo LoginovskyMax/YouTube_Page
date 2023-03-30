@@ -8,17 +8,18 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./login-info.component.scss'],
 })
 export class LoginInfoComponent implements OnDestroy {
-  userName:string = ''
-  constructor(  private router: Router, 
-                private auth:AuthService) { 
-    this.auth.authUser.subscribe(name => this.userName = name)
-                }
+  userName = ''
 
-  goToAuth(){
-    if(this.userName){
-        this.auth.logOut()
-    }else{
-      this.router.navigate([`auth`])
+  constructor(private router: Router,
+                private auth: AuthService) {
+    this.auth.authUser.subscribe((name) => { this.userName = name; });
+  }
+
+  goToAuth() {
+    if (this.userName) {
+      this.auth.logOut();
+    } else {
+      this.router.navigate(['auth']);
     }
   }
 

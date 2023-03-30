@@ -5,7 +5,7 @@ import { DetailedPageComponent } from './core/pages/detailed-page/detailed-page.
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'video/:id', component: DetailedPageComponent},
+  { path: 'video/:id', component: DetailedPageComponent },
   { path: 'main', loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
   { path: '**', component: NotFoundComponent },
