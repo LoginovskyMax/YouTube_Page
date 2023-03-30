@@ -14,7 +14,7 @@ export class DataService {
 
   findingCards: SearchItem[] = []
 
-  data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([])
+  data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([]) 
 
   sortCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 

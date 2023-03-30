@@ -1,4 +1,4 @@
 <div class="login">
-    <p>Your name</p>
-    <button mat-raised-button color="primary" type="button"><mat-icon>account_box</mat-icon></button>
+    <p>{{userName ? userName : 'Your name'}}</p>
+    <button mat-raised-button color="primary" type="button" (click)="goToAuth()"><mat-icon>{{userName ? 'other' : 'account_box'}}</mat-icon></button>
 </div>

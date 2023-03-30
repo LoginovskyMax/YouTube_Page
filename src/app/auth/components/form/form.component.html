@@ -1,0 +1,16 @@
+<form [formGroup]="form" novalidate (ngSubmit)="submit()" >
+    <div class="form-group">
+        <label class="form-group__label">Enter name</label>
+        <input type="text" formControlName="name" class="form-group__input" placeholder="Your name...">
+        <div class="alert" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+          Add name!
+        </div>
+  
+        <label class="form-group__label">Password</label>
+        <input  formControlName="password" class="form-group__input" placeholder="Your password..." type="password">
+        <div class="alert" *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+          Add password!
+        </div>
+      <button type="submit" [disabled]="form.invalid" class="form-group__btn">Sign In</button>
+     </div>
+</form>

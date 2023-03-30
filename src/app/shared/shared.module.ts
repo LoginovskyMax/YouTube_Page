@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialUIModule } from '../material-ui/material-ui.module';
+import { MaterialUIModule } from './material-ui/material-ui.module';
 import { StatisticsComponent } from './Components/statistics/statistics.component';
 
 @NgModule({

@@ -6,7 +6,7 @@ import { SettingsButtonComponent } from './components/header/settings-button/set
 import { LogoComponent } from './components/header/logo/logo.component';
 import { SearchComponent } from './components/header/search/search.component';
 import { FilteringBlockComponent } from './components/header/filtering-block/filtering-block.component';
-import { MaterialUIModule } from '../material-ui/material-ui.module';
+import { MaterialUIModule } from '../shared/material-ui/material-ui.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
