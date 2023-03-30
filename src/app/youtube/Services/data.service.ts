@@ -45,4 +45,9 @@ export class DataService {
   showSettings() {
     this.showSettingBlock.next(!this.showSettingBlock.getValue());
   }
+
+  getVideoDetails(id:string){
+   const video =  this.findingCards.find(card=>card.id === id)
+   return video
+  }
 }

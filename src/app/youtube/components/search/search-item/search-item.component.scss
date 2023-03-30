@@ -14,19 +14,10 @@
     &__image{
         width: 90%;
     }
-    &__stat{
-        display: flex;
-        align-items: center;
-    }
     &__title{
         height: 40px;
         font-weight: bold;
         text-align: center;
-    }
-    &__statistics{
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
     }
     &__btn{
         margin-bottom: 10px;

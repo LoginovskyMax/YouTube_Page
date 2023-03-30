@@ -1,6 +1,7 @@
 import {
   Component, Input, OnDestroy, OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { SearchItem } from '../../../models/search-item.model';
 
 @Component({
@@ -11,7 +12,7 @@ import { SearchItem } from '../../../models/search-item.model';
 export class SearchItemComponent implements OnInit, OnDestroy {
   @Input() card: SearchItem|null = null
 
-  constructor() {
+  constructor( private router: Router) {
 
   }
 
@@ -19,5 +20,9 @@ export class SearchItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+  }
+
+  goToDetailed(id:string|undefined){
+    if(id)this.router.navigate([`video/${id}`]);
   }
 }

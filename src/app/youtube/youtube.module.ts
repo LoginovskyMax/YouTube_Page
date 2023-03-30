@@ -7,6 +7,7 @@ import { ColorDirective } from './Directives/color.directive';
 import { MaterialUIModule } from '../material-ui/material-ui.module';
 import { FormsModule } from '@angular/forms';
 import { YouTubeRoutingModule } from './youtube-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { YouTubeRoutingModule } from './youtube-routing.module';
     CommonModule,
     MaterialUIModule,
     FormsModule,
-    YouTubeRoutingModule
+    YouTubeRoutingModule,
+    SharedModule
   ],
   exports:[
     SearchResultsComponent

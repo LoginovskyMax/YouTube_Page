@@ -8,6 +8,7 @@ import { SearchComponent } from './components/header/search/search.component';
 import { FilteringBlockComponent } from './components/header/filtering-block/filtering-block.component';
 import { MaterialUIModule } from '../material-ui/material-ui.module';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
@@ -26,7 +27,8 @@ import { DetailedPageComponent } from './pages/detailed-page/detailed-page.compo
   imports: [ 
     CommonModule,
     MaterialUIModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports:[
     HeaderComponent

@@ -6,7 +6,7 @@ import { CoreModule } from './core/core.module';
 import { YoutubeModule } from './youtube/youtube.module';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

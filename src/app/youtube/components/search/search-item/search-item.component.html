@@ -1,22 +1,7 @@
 <div class="card">
     <img [src]="card?.snippet?.thumbnails?.standard?.url" alt="preview" width="200" class="card__image">
-    
-    <div class="card__statistics">
-       <div class="card__stat">
-        <mat-icon>favorite</mat-icon> {{card?.statistics?.likeCount}}
-       </div> 
-       <div class="card__stat">
-        <mat-icon>thumb_down</mat-icon> {{card?.statistics?.dislikeCount}}
-       </div> 
-       <div class="card__stat">
-        <mat-icon>visibility</mat-icon>{{card?.statistics?.viewCount}}
-       </div> 
-       <div class="card__stat">
-        <mat-icon>forum</mat-icon>{{card?.statistics?.commentCount}}
-       </div> 
-     
-    </div>
+    <app-statistics [statistics]="card?.statistics"></app-statistics>
     <p class="card__title">{{card?.snippet?.title}}</p>
-    <button type="button" mat-raised-button color="primary" class="card__btn">More</button>
+    <button type="button" mat-raised-button color="primary" class="card__btn" (click)="goToDetailed(card?.id)">More</button>
     <div class="card__bottom_line" [appColor]="card?.snippet?.publishedAt"></div>
 </div>
