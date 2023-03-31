@@ -20,6 +20,10 @@ export class AuthService {
     this.authUser.next(name);
   }
 
+  isLogIn() {
+    return this.authUser.value;
+  }
+
   logOut() {
     localStorage.removeItem('user');
     this.authUser.next('');

@@ -9,7 +9,6 @@ import { SearchComponent } from './components/header/search/search.component';
 import { FilteringBlockComponent } from './components/header/filtering-block/filtering-block.component';
 import { MaterialUIModule } from '../shared/material-ui/material-ui.module';
 import { SharedModule } from '../shared/shared.module';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
 

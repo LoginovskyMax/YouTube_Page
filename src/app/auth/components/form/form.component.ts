@@ -13,13 +13,15 @@ import { AuthService } from '../../services/auth.service';
 export class FormComponent implements OnDestroy {
   form: FormGroup;
 
+  hide = true;
+
   @Input() create = false
 
   constructor(private router: Router,
               private auth: AuthService) {
     this.form = new FormGroup({
-      name: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]),
     });
   }
 

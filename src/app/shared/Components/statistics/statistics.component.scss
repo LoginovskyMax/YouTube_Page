@@ -1,11 +1,12 @@
 .statistics{
     display: flex;
-    
-    gap: 5px;
+    justify-content: space-between;
+    gap: 3px;
     width: 90%;
+    color:black;
     &__item{
         display: flex;
-        justify-content: space-between;
+        gap: 2px;
         align-items: center;
     }
 }

@@ -13,6 +13,8 @@ export class DetailedPageComponent implements OnInit {
 
   videoData: SearchItem|undefined
 
+  time = ''
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private data: DataService) {
@@ -20,6 +22,11 @@ export class DetailedPageComponent implements OnInit {
       this.id = params['id'];
     });
     this.videoData = this.data.getVideoDetails(this.id);
+    if (this.videoData) {
+      this.time = new Date(this.videoData?.snippet.publishedAt).toLocaleDateString();
+    } else {
+      this.router.navigate(['main']);
+    }
   }
 
   ngOnInit(): void {

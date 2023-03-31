@@ -3,10 +3,16 @@
     <div class="main__info">
         <div class="main__info_title">
             <h2>{{videoData?.snippet?.title}}</h2>
-            <app-statistics [statistics] = 'videoData?.statistics'></app-statistics> 
+            <p>{{time}}</p>
+            <div class="main__scroll">
+                <p class="main__info_descr">Description :</p>
+                <p>{{videoData?.snippet?.description}}</p>
+             </div>
         </div>
-         <p>Description</p>
-         <p>{{videoData?.snippet?.description}}</p>
+         
+        
+         <app-statistics [statistics] = 'videoData?.statistics'></app-statistics> 
+         <div class="main__bottom_line" [appColor]="videoData?.snippet?.publishedAt"></div>
     </div>
-    <button type="button" mat-raised-button color="primary" class="main__btn" (click)="goToMain()">Back</button>
+    <button type="button" mat-raised-button color="primary" class="main__btn" (click)="goToMain()"><mat-icon>label_important</mat-icon></button>
 </section>

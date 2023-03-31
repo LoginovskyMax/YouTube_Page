@@ -18,6 +18,7 @@ export class LoginInfoComponent implements OnDestroy {
   goToAuth() {
     if (this.userName) {
       this.auth.logOut();
+      this.router.navigate(['auth']);
     } else {
       this.router.navigate(['auth']);
     }
