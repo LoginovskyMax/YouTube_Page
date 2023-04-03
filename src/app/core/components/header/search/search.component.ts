@@ -15,8 +15,9 @@ export class SearchComponent implements OnDestroy {
 
   findVideo() {
     this.data.findCards(this.inputValue);
+    
   }
-
+  
   ngOnDestroy(): void {
 
   }

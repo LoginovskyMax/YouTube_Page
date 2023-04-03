@@ -35,6 +35,13 @@ interface Snipet {
     defaultAudioLanguage: string;
 }
 
+export interface FirstSearchItem{
+    kind: string;
+    etag: string;
+    id: {videoId:string};
+    snippet: Snipet;
+}
+
 export interface SearchItem {
     kind: string;
     etag: string;

@@ -1,4 +1,5 @@
-import { SearchItem } from './search-item.model';
+import { FirstSearchItem, SearchItem } from './search-item.model';
+
 
 interface PageInfo {
     totalResults: number;
@@ -9,4 +10,11 @@ export interface SearchResponse {
     etag: string;
     pageInfo: PageInfo;
     items: SearchItem[];
+}
+
+export interface FirstSearchResponse{
+    kind: string;
+    etag: string;
+    pageInfo: PageInfo;
+    items: FirstSearchItem[];
 }
