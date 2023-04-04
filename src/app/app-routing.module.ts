@@ -12,8 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     canActivate: [AuthGuardService],
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin-page/admin.module').then((m) => m.AdminModule),
+    canActivate: [AuthGuardService],
+  },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
-  { path: 'admin', loadChildren: () => import('./admin-page/admin.module').then((m) => m.AdminModule) },
   { path: '**', component: NotFoundComponent },
 ];
 

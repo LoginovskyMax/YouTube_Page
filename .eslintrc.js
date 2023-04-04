@@ -11,7 +11,7 @@ module.exports = {
     "no-empty-function":"off",
     "no-unused-expressions":"off",
     "@typescript-eslint/no-useless-constructor":"off",
-    "dot-notation":"off",
+    "dot-notation":"off"
   },
    ignorePatterns: ["dist"],
   };

@@ -5,10 +5,10 @@
           <input type="text" matInput  formControlName="title" 
                 [ngClass]="{'is-invalid': isSubmitted && form.controls['title'].errors}"
                 placeholder="Your name...">
-          <mat-icon matSuffix >account_circle</mat-icon>
+          <mat-icon matSuffix >article</mat-icon>
           <mat-error *ngIf="form.controls['title'].errors?.['required'] ">
             Please enter title
-          </mat-error>
+          </mat-error> 
           <mat-error *ngIf="form.controls['title'].errors?.['minlength'] ">
             Title too short
           </mat-error>
@@ -22,11 +22,8 @@
             <input type="text" matInput  formControlName="description" 
                   [ngClass]="{'is-invalid': isSubmitted && form.controls['description'].errors}"
                   placeholder="Description">
-            <mat-icon matSuffix >account_circle</mat-icon>
-            <mat-error *ngIf="form.controls['description'].errors?.['required'] ">
-              Please enter Description
-            </mat-error>
-            <mat-error *ngIf="form.controls['description'].errors?.['maxlength'] ">
+            <mat-icon matSuffix >description</mat-icon>
+            <mat-error *ngIf="form.controls['description'].errors?.['maxlength'] "> 
                 Too long description
               </mat-error>
           </mat-form-field>
@@ -35,11 +32,11 @@
             <mat-label>Img</mat-label>
             <input type="email" matInput  formControlName="img" [ngClass]="{'is-invalid': isSubmitted && form.controls['img'].errors}"
             placeholder="Link to image">
-            <mat-icon matSuffix >account_circle</mat-icon>
+            <mat-icon matSuffix >send_and_archive</mat-icon>
             <mat-error *ngIf="form.controls['img'].errors?.['required'] ">
               Please add link
             </mat-error>
-              <mat-error *ngIf="form.controls['img'].errors?.['email']">
+              <mat-error *ngIf="form.controls['img'].errors?.['pattern']">
               Link is invalid
             </mat-error>
           </mat-form-field>
@@ -49,6 +46,7 @@
           <input type='text' matInput  formControlName="link" 
           [ngClass]="{'is-invalid': isSubmitted && form.controls['link'].errors}"
           placeholder="Your link to video">
+          <mat-icon matSuffix >video_file</mat-icon>
           <mat-error *ngIf="form.controls['link'].errors?.['required']">
             Please enter a link to video
           </mat-error>
@@ -62,6 +60,7 @@
             <input type='date' matInput  formControlName="date" 
             [ngClass]="{'is-invalid': isSubmitted && form.controls['date'].errors}"
             placeholder="Add date">
+            <mat-icon matSuffix >date range</mat-icon>
             <mat-error *ngIf="form.controls['date'].errors?.['required']">
               Please enter date
             </mat-error>
@@ -71,4 +70,8 @@
           </mat-form-field>
       <button mat-raised-button color="primary" type="submit" class="form-group__btn">Sign In</button>
      </div>
+     <div  *ngIf="succesSubmit" class="succes">
+       <p class="succes__text">Succes created</p>
+     </div>
+   
 </form>

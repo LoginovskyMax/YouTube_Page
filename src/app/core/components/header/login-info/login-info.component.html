@@ -1,5 +1,5 @@
 <div class="login">
     <p>{{userName ? userName : 'Your name'}}</p>
     <button mat-raised-button color="primary" type="button" (click)="goToAuth()"><mat-icon>{{userName ? 'logout' : 'account_box'}}</mat-icon></button>
-    <button *ngIf="userName" mat-raised-button color="primary" type="button" (click)="goToCreate()"><mat-icon>plus</mat-icon></button>
-</div>
+    <button *ngIf="userName" mat-raised-button color="primary" type="button" (click)="goToCreate()"><mat-icon>note_add</mat-icon></button>
+</div> 
