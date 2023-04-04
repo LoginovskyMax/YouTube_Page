@@ -1,6 +1,5 @@
 import { FirstSearchItem, SearchItem } from './search-item.model';
 
-
 interface PageInfo {
     totalResults: number;
     resultsPerPage: number;

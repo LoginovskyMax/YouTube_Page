@@ -38,7 +38,7 @@ interface Snipet {
 export interface FirstSearchItem{
     kind: string;
     etag: string;
-    id: {videoId:string};
+    id: {videoId: string};
     snippet: Snipet;
 }
 

@@ -1,6 +1,6 @@
 <div class="search-block">
     <div class="search-block__inp-block">
-        <input placeholder="Search..." [(ngModel)]="inputValue" class="search-block__input" (keyup)="findVideo()">
+        <input placeholder="Search..." class="search-block__input" (keyup)="findVideo($event)">
         <mat-icon matSuffix class="search-block__icon">search</mat-icon>
     </div>
 </div>

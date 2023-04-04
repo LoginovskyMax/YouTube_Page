@@ -7,18 +7,16 @@ import { DataService } from 'src/app/youtube/Services/data.service';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnDestroy {
-  inputValue = ''
-
   constructor(private data: DataService) {
-
   }
 
-  findVideo() {
-    if(this.inputValue.length>=3){
-      this.data.findCards(this.inputValue);
+  findVideo(event: KeyboardEvent) {
+    const text = (event.target as HTMLInputElement).value;
+    if (text.length >= 2) {
+      this.data.findCards(text);
     }
   }
-  
+
   ngOnDestroy(): void {
 
   }
