@@ -7,8 +7,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
-  }
-
+  } 
   ngOnDestroy(): void {
   }
 }
