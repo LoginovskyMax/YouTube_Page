@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DateValidator } from '../../utils/validator';
 
 @Component({
   selector: 'app-card-form',
@@ -18,7 +19,7 @@ export class CardFormComponent implements OnDestroy {
       description: new FormControl('', [Validators.required, Validators.maxLength(255)]),
       img: new FormControl('', [Validators.required]),
       link: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required, DateValidator()]),
     });
   }
 

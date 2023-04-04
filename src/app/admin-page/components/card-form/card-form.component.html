@@ -65,8 +65,8 @@
             <mat-error *ngIf="form.controls['date'].errors?.['required']">
               Please enter date
             </mat-error>
-            <mat-error *ngIf="form.controls['date'].errors?.['pattern']">
-              Date is invalid
+            <mat-error *ngIf="form.controls['date'].errors?.['dateValid']">
+              Date is from future
             </mat-error>
           </mat-form-field>
       <button mat-raised-button color="primary" type="submit" class="form-group__btn">Sign In</button>
