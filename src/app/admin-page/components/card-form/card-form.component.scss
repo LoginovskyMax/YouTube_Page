@@ -1,0 +1,36 @@
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    align-items:flex-end;
+    width: 200px;
+    background-color: rgb(190, 196, 196);
+    box-shadow: 5px 5px 5px 0px rgb(159, 161, 161);
+    &__label{
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    &__area{
+        resize: none;
+        height: 100px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    &__input{
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    &__btn{
+        margin-top: 30px;
+        transition: 0.4s ease-in-out;
+        &:hover{
+            transform: translateY(-3px);
+        }
+    }
+}
+.alert{
+    color: crimson
+}

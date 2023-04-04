@@ -24,6 +24,10 @@ export class LoginInfoComponent implements OnDestroy {
     }
   }
 
+  goToCreate() {
+    this.router.navigate(['admin']);
+  }
+
   ngOnDestroy(): void {
   }
 }
