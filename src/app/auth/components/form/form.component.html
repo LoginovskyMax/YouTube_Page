@@ -1,23 +1,30 @@
 <form [formGroup]="form" novalidate (ngSubmit)="submit()" >
     <div class="form-group">
         <mat-form-field>
-          <mat-label>Name</mat-label>
-          <input type="text" matInput  formControlName="name" 
+          <mat-label>Login</mat-label>
+          <input type="email" matInput  formControlName="email" [ngClass]="{'is-invalid': isSubmitted && form.controls['email'].errors}"
           placeholder="Your name...">
           <mat-icon matSuffix >account_circle</mat-icon>
-          <mat-error *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
-            Please enter a valid name
+          <mat-error *ngIf="form.controls['email'].errors?.['required'] ">
+            Please enter email
+          </mat-error>
+            <mat-error *ngIf="form.controls['email'].errors?.['email']">
+            Email is invalid
           </mat-error>
         </mat-form-field>
           <mat-form-field>
           <mat-label>Password</mat-label>
           <input [type]="hide ? 'password' : 'text'" matInput  formControlName="password" 
+          [ngClass]="{'is-invalid': isSubmitted && form.controls['password'].errors}"
           placeholder="Your password...">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          <mat-error *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
-            Please enter a valid password
+          <mat-error *ngIf="form.controls['password'].errors?.['required']">
+            Please enter a password
+          </mat-error>
+          <mat-error *ngIf="form.controls['password'].errors?.['pattern']">
+            Your password isn,t strong enoogh
           </mat-error>
         </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" class="form-group__btn">Sign In</button>
+      <button mat-raised-button color="primary" type="submit" class="form-group__btn">Sign In</button>
      </div>
 </form>

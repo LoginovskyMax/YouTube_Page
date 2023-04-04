@@ -13,6 +13,8 @@ import { AuthService } from '../../services/auth.service';
 export class FormComponent implements OnDestroy {
   form: FormGroup;
 
+  isSubmitted = false;
+
   hide = true;
 
   @Input() create = false
@@ -20,19 +22,24 @@ export class FormComponent implements OnDestroy {
   constructor(private router: Router,
               private auth: AuthService) {
     this.form = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]),
-      password: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/(?=.*\d)(?=.*[@!$#?&-])(?=.*[a-z])(?=.*[A-Z]).{8,}/)]),
     });
   }
 
   submit() {
-    const obj = {
-      name: this.form.controls['name'].value,
-      password: this.form.controls['password'].value,
-    };
-    localStorage.setItem('user', JSON.stringify(obj));
-    this.auth.logIn(this.form.controls['name'].value);
-    this.router.navigate(['main']);
+    this.isSubmitted = true;
+    if (!this.form.invalid) {
+      const obj = {
+        name: this.form.controls['email'].value,
+        password: this.form.controls['password'].value,
+      };
+      localStorage.setItem('user', JSON.stringify(obj));
+      this.auth.logIn(this.form.controls['email'].value);
+      this.router.navigate(['main']);
+    }
   }
 
   ngOnDestroy(): void {
