@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { YoutubeHeadersInterceptor } from './youtube/youtube-headers.interceptor';
-
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './redux/reducers';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,7 @@ import { YoutubeHeadersInterceptor } from './youtube/youtube-headers.interceptor
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot({ count: counterReducer })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: YoutubeHeadersInterceptor, multi: true },
