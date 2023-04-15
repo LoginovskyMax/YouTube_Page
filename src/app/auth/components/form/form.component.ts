@@ -1,5 +1,5 @@
 import {
-  Component, Input, OnDestroy,
+  Component, Input, OnInit,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,18 +9,20 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-})
-export class FormComponent implements OnDestroy {
-  form: FormGroup;
+  })
+export class FormComponent implements OnInit {
+  public form: FormGroup;
 
-  isSubmitted = false;
+  public isSubmitted = false;
 
-  hide = true;
+  public hide = true;
 
   @Input() create = false
 
   constructor(private router: Router,
-              private auth: AuthService) {
+              private auth: AuthService) {}
+
+  ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -29,7 +31,7 @@ export class FormComponent implements OnDestroy {
     });
   }
 
-  submit() {
+  public submit() {
     this.isSubmitted = true;
     if (!this.form.invalid) {
       const obj = {
@@ -40,9 +42,5 @@ export class FormComponent implements OnDestroy {
       this.auth.logIn(this.form.controls['email'].value);
       this.router.navigate(['main']);
     }
-  }
-
-  ngOnDestroy(): void {
-
   }
 }

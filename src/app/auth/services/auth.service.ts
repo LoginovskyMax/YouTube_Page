@@ -3,9 +3,9 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
-})
+  })
 export class AuthService {
-  authUser: BehaviorSubject<string> = new BehaviorSubject<string>('')
+  public authUser: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
   constructor() {
     if (localStorage.getItem('user')) {
@@ -16,15 +16,15 @@ export class AuthService {
     }
   }
 
-  logIn(name: string) {
+  public logIn(name: string) {
     this.authUser.next(name);
   }
 
-  isLogIn() {
+  public isLogIn() {
     return this.authUser.value;
   }
 
-  logOut() {
+  public logOut() {
     localStorage.removeItem('user');
     this.authUser.next('');
   }

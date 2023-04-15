@@ -1,25 +1,25 @@
 import {
-  Directive, ElementRef, Input, OnChanges,
+  Directive, ElementRef, Input, OnChanges, OnInit,
 } from '@angular/core';
 
 @Directive({
   selector: '[appColor]',
-})
-export class ColorDirective implements OnChanges {
+  })
+export class ColorDirective implements OnInit {
+  @Input() appColor: string | undefined= ''
+
   private today = new Date()
 
   private color = ''
 
-  @Input() appColor: string | undefined= ''
-
   constructor(private div: ElementRef) {}
 
-  ngOnChanges(): void {
+  ngOnInit() {
     this.differentInDays();
     this.div.nativeElement.style.backgroundColor = this.color;
   }
 
- private differentInDays() {
+  private differentInDays(): void {
     if (this.appColor) {
       const publishedDate = new Date(this.appColor);
       const diff = Date.parse(this.today.toDateString()) - Date.parse(publishedDate.toDateString());

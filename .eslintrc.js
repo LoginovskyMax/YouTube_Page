@@ -1,5 +1,8 @@
 module.exports = {
-    extends: ['airbnb-angular'],
+    extends: [
+      'airbnb-angular',
+      "plugin:@typescript-eslint/eslint-recommended",
+      ],
     settings: {
       "import/resolver": {
         typescript: {} 
@@ -11,7 +14,10 @@ module.exports = {
     "no-empty-function":"off",
     "no-unused-expressions":"off",
     "@typescript-eslint/no-useless-constructor":"off",
-    "dot-notation":"off"
+    "@typescript-eslint/no-unused-vars":"off",
+    "dot-notation":"off",
+    "no-unused-vars":"off",
+    "import/named":"off"
   },
    ignorePatterns: ["dist"],
   };

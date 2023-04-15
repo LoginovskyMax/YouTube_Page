@@ -11,13 +11,12 @@ export function DateValidator(): ValidatorFn {
 
 export function URLValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors|null => {
-    let isValid = false
-    try{
+    let isValid = false;
+    try {
       const value = new URL(control.value);
-      isValid = true
-    }
-    catch{
-      isValid = false
+      isValid = true;
+    } catch {
+      isValid = false;
     }
     return !isValid ? { URLValid: true } : null;
   };

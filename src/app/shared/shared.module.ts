@@ -6,16 +6,16 @@ import { ColorDirective } from './directives/color.directive';
 
 @NgModule({
   declarations: [
-    StatisticsComponent,
-    ColorDirective,
+  StatisticsComponent,
+  ColorDirective,
   ],
   imports: [
-    CommonModule,
-    MaterialUIModule,
+  CommonModule,
+  MaterialUIModule,
   ],
   exports: [
-    StatisticsComponent,
-    ColorDirective,
+  StatisticsComponent,
+  ColorDirective,
   ],
-})
+  })
 export class SharedModule { }

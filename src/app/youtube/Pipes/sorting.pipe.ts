@@ -3,7 +3,7 @@ import { SearchItem } from '../models/search-item.model';
 
 @Pipe({
   name: 'sort',
-})
+  })
 export class SortingPipe implements PipeTransform {
   transform(value: SearchItem[], arg: string): SearchItem[] {
     let sortedArr: SearchItem[] = [];

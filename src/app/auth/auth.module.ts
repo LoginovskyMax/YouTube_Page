@@ -8,15 +8,15 @@ import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
-    AuthPageComponent,
-    FormComponent,
+  AuthPageComponent,
+  FormComponent,
   ],
   imports: [
-    CommonModule,
-    MaterialUIModule,
-    FormsModule,
-    RouterAuthModule,
-    ReactiveFormsModule,
+  CommonModule,
+  MaterialUIModule,
+  FormsModule,
+  RouterAuthModule,
+  ReactiveFormsModule,
   ],
-})
+  })
 export class AuthModule { }

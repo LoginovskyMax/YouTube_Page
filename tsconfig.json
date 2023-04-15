@@ -2,7 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "baseUrl": "./",

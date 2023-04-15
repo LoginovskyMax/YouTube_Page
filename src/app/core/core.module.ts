@@ -10,27 +10,27 @@ import { FilteringBlockComponent } from './components/header/filtering-block/fil
 import { MaterialUIModule } from '../shared/material-ui/material-ui.module';
 import { SharedModule } from '../shared/shared.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
+import { DetailedPageComponent } from '../youtube/pages/detailed-page/detailed-page.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    LoginInfoComponent,
-    SettingsButtonComponent,
-    LogoComponent,
-    SearchComponent,
-    FilteringBlockComponent,
-    NotFoundComponent,
-    DetailedPageComponent,
+  HeaderComponent,
+  LoginInfoComponent,
+  SettingsButtonComponent,
+  LogoComponent,
+  SearchComponent,
+  FilteringBlockComponent,
+  NotFoundComponent,
+  DetailedPageComponent,
   ],
   imports: [
-    CommonModule,
-    MaterialUIModule,
-    FormsModule,
-    SharedModule,
+  CommonModule,
+  MaterialUIModule,
+  FormsModule,
+  SharedModule,
   ],
   exports: [
-    HeaderComponent,
+  HeaderComponent,
   ],
-})
+  })
 export class CoreModule { }

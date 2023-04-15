@@ -1,6 +1,6 @@
 <div class="card">
     <img [src]="card.img" alt="preview" width="200" class="card__image">
-    <!-- <app-statistics [statistics]="card?.statistics"></app-statistics> -->
+    <app-statistics [statistics] = ''></app-statistics> 
     <p class="card__title">{{card.title}}</p>
     <button type="button" mat-raised-button color="primary" class="card__btn" (click)="goToDetailed(card.id)">More</button>
     <div class="card__bottom_line" [appColor]="card.date"></div>

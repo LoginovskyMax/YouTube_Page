@@ -3,41 +3,34 @@ import {
   BehaviorSubject, Observable, map, Subject, debounceTime,
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { SearchResponse, FirstSearchResponse } from '../models/search-response.model';
-import { SearchItem } from '../models/search-item.model';
 import { Store } from '@ngrx/store';
 import { loadVideos, setFilteredVideos } from 'src/app/redux/actions';
+import { IState } from 'src/app/redux/reducers';
+import { ICustomCard } from 'src/app/redux/customCards.model';
+import { SearchResponse, FirstSearchResponse } from '../models/search-response.model';
+import { SearchItem } from '../models/search-item.model';
 
 @Injectable({
   providedIn: 'root',
-})
+  })
 export class DataService {
-  findingCards: SearchItem[] = []
+  public findingCards: SearchItem[] = []
 
-  filterCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
+  public filterCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
-  showSettingBlock: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  public showSettingBlock: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
-  searchType = '&type=video&part=snippet&maxResults=5&q='
+  private searchType = '&type=video&part=snippet&maxResults=5&q='
 
-  debounceSub = new Subject<string>()
+  private debounceSub = new Subject<string>()
 
-  constructor(private http: HttpClient, private store:Store) {}
+  constructor(private http: HttpClient, private store: Store<{store: IState}>) {}
 
-  getVideo(id: string): Observable<SearchResponse> {
-    return this.http.get<SearchResponse>(`videos&id=${id}&part=snippet,statistics`);
-  }
-
-  sendSearchResponse(text: string) {
-    return this.http.get<FirstSearchResponse>(`search${this.searchType}${text}`);
-  }
-
-  findCards(text: string) {
+  public findCards(text: string): void {
     let filteredArr: SearchItem[] = [];
     this.debounceSub.next(text);
     this.debounceSub.pipe(
-      debounceTime(1000), map((searchText) => this.sendSearchResponse(searchText)
-      )
+      debounceTime(1000), map((searchText) => this.sendSearchResponse(searchText)),
     )
       .subscribe((result) => {
         result.subscribe((response) => {
@@ -46,28 +39,44 @@ export class DataService {
             .subscribe((data) => {
               filteredArr = data.items;
               if (text === '')filteredArr = [];
-              console.log('da');
-              this.store.dispatch(loadVideos({response:filteredArr}))
-              this.findingCards = filteredArr
+              this.store.dispatch(loadVideos({ response: filteredArr }));
+              this.findingCards = filteredArr;
             });
         });
       });
   }
 
-  filterCards(text: string) {
+  public filterCards(text: string): void {
     let filteredArr = this.findingCards
       .filter((card) => card.snippet.title.toLowerCase()
         .includes(text.toLowerCase()));
     if (text === '')filteredArr = this.findingCards;
-    this.store.dispatch(setFilteredVideos({filteredArr}))
+    this.store.dispatch(setFilteredVideos({ filteredArr }));
   }
 
-  showSettings() {
+  public showSettings(): void {
     this.showSettingBlock.next(!this.showSettingBlock.getValue());
   }
 
-  getVideoDetails(id: string) {
+  public getVideoDetails(id: string): SearchItem | undefined {
     const video = this.findingCards.find((card) => card.id === id);
     return video;
+  }
+
+  public getCustomVideoDetails(id: string): ICustomCard | undefined {
+    let video: undefined|ICustomCard;
+    this.store.select((state) => state.store.customCards)
+      .subscribe((data) => {
+        video = data.find((card) => card.id.toString() === id);
+      });
+    return video;
+  }
+
+  private getVideo(id: string): Observable<SearchResponse> {
+    return this.http.get<SearchResponse>(`videos&id=${id}&part=snippet,statistics`);
+  }
+
+  private sendSearchResponse(text: string): Observable<FirstSearchResponse> {
+    return this.http.get<FirstSearchResponse>(`search${this.searchType}${text}`);
   }
 }

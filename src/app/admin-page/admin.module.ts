@@ -9,18 +9,18 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
-    CardFormComponent,
-    AdminPageComponent,
+  CardFormComponent,
+  AdminPageComponent,
   ],
   imports: [
-    CommonModule,
-    MaterialUIModule,
-    FormsModule,
-    SharedModule,
-    ReactiveFormsModule,
-    AdminRoutingModule,
+  CommonModule,
+  MaterialUIModule,
+  FormsModule,
+  SharedModule,
+  ReactiveFormsModule,
+  AdminRoutingModule,
   ],
   exports: [
   ],
-})
+  })
 export class AdminModule { }

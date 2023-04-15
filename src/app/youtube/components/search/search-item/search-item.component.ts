@@ -1,5 +1,5 @@
 import {
-  Component, Input, OnDestroy, OnInit,
+  Component, Input, OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchItem } from '../../../models/search-item.model';
@@ -8,21 +8,16 @@ import { SearchItem } from '../../../models/search-item.model';
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
-})
-export class SearchItemComponent implements OnInit, OnDestroy {
+  })
+export class SearchItemComponent implements OnInit {
   @Input() card: SearchItem|null = null
 
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  ngOnDestroy(): void {
-  }
-
-  goToDetailed(id: string|undefined) {
+  public goToDetailed(id: string|undefined): void {
     if (id) this.router.navigate([`video/${id}`]);
   }
 }

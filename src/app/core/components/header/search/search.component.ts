@@ -1,25 +1,18 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { IState } from 'src/app/redux/reducers';
-import { DataService } from 'src/app/youtube/Services/data.service';
+import { Component } from '@angular/core';
+import { DataService } from 'src/app/youtube/services/data.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-})
-export class SearchComponent implements OnDestroy {
-  constructor(private data: DataService, private store: Store<{ cards:IState }>) {
-  }
+  })
+export class SearchComponent {
+  constructor(private data: DataService) {}
 
-  findVideo(event: KeyboardEvent) {
+  public findVideo(event: KeyboardEvent): void {
     const searchText = (event.target as HTMLInputElement).value;
-    if (searchText.length > 2) {
+    if (searchText.length >= 2) {
       this.data.findCards(searchText);
     }
-  }
-
-  ngOnDestroy(): void {
-
   }
 }
