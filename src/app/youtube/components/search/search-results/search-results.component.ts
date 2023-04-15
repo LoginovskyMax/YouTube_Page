@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DataService } from 'src/app/youtube/Services/data.service';
 import { SearchItem } from '../../../models/search-item.model';
+import { ICustomCard } from 'src/app/redux/customCards.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IState } from 'src/app/redux/reducers';
 
 @Component({
   selector: 'app-search-results',
@@ -8,20 +11,20 @@ import { SearchItem } from '../../../models/search-item.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  dataArr: SearchItem[] = []
+  public dataArr: SearchItem[] = []
+  public customArr:Observable<ICustomCard[]> 
+  public sortCriteria = ''
 
-  sortCriteria = ''
-
-  constructor(private data: DataService) {
-    this.data.data.subscribe((val) => {
-      this.dataArr = val;
-    });
-    this.data.sortCriteria.subscribe((val) => {
-      this.sortCriteria = val;
-    });
-  }
+  constructor(private store: Store<{store:IState}>) {}
 
   ngOnInit(): void {
+    this.customArr = this.store.select((state)=>state.store.customCards);
+    this.store.select((state)=>state.store.loadCards).subscribe(data=>
+      this.dataArr = data
+    )
+    this.store.select((state)=>state.store.sortCriteria).subscribe(data=>
+      this.sortCriteria = data
+    )
   }
 
   ngOnDestroy(): void {

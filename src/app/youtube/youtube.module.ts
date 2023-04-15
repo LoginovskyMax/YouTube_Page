@@ -7,12 +7,14 @@ import { SortingPipe } from './Pipes/sorting.pipe';
 import { MaterialUIModule } from '../shared/material-ui/material-ui.module';
 import { YouTubeRoutingModule } from './youtube-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { CustomCardComponent } from './components/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
     SearchResultsComponent,
     SearchItemComponent,
     SortingPipe,
+    CustomCardComponent,
   ],
   imports: [
     CommonModule,

@@ -6,9 +6,9 @@ import {
   selector: '[appColor]',
 })
 export class ColorDirective implements OnChanges {
-  today = new Date()
+  private today = new Date()
 
-  color = ''
+  private color = ''
 
   @Input() appColor: string | undefined= ''
 
@@ -19,7 +19,7 @@ export class ColorDirective implements OnChanges {
     this.div.nativeElement.style.backgroundColor = this.color;
   }
 
-  differentInDays() {
+ private differentInDays() {
     if (this.appColor) {
       const publishedDate = new Date(this.appColor);
       const diff = Date.parse(this.today.toDateString()) - Date.parse(publishedDate.toDateString());

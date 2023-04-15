@@ -21,6 +21,7 @@ export class DetailedPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
     });
+    
     this.videoData = this.data.getVideoDetails(this.id);
     if (this.videoData) {
       this.time = new Date(this.videoData?.snippet.publishedAt).toLocaleDateString();

@@ -1,3 +1,4 @@
 <div class="wrap">
-    <app-search-item *ngFor="let card of dataArr | sort : sortCriteria"  [card]="card"></app-search-item>  
+    <app-search-item *ngFor="let card of dataArr | sort : sortCriteria"  [card]="card"></app-search-item>
+    <app-custom-card *ngFor="let card of customArr | async" [card]="card"></app-custom-card>
 </div>

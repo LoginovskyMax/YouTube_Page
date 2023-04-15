@@ -5,16 +5,14 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { SearchResponse, FirstSearchResponse } from '../models/search-response.model';
 import { SearchItem } from '../models/search-item.model';
+import { Store } from '@ngrx/store';
+import { loadVideos, setFilteredVideos } from 'src/app/redux/actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   findingCards: SearchItem[] = []
-
-  data: BehaviorSubject<SearchItem[]> = new BehaviorSubject<SearchItem[]>([])
-
-  sortCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
   filterCriteria: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
@@ -24,7 +22,7 @@ export class DataService {
 
   debounceSub = new Subject<string>()
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store:Store) {}
 
   getVideo(id: string): Observable<SearchResponse> {
     return this.http.get<SearchResponse>(`videos&id=${id}&part=snippet,statistics`);
@@ -38,7 +36,8 @@ export class DataService {
     let filteredArr: SearchItem[] = [];
     this.debounceSub.next(text);
     this.debounceSub.pipe(
-      debounceTime(1000), map((searchText) => this.sendSearchResponse(searchText)),
+      debounceTime(1000), map((searchText) => this.sendSearchResponse(searchText)
+      )
     )
       .subscribe((result) => {
         result.subscribe((response) => {
@@ -47,15 +46,12 @@ export class DataService {
             .subscribe((data) => {
               filteredArr = data.items;
               if (text === '')filteredArr = [];
-              this.data.next(filteredArr);
-              this.findingCards = this.data.getValue();
+              console.log('da');
+              this.store.dispatch(loadVideos({response:filteredArr}))
+              this.findingCards = filteredArr
             });
         });
       });
-  }
-
-  sortCards(text: string) {
-    this.sortCriteria.next(text);
   }
 
   filterCards(text: string) {
@@ -63,7 +59,7 @@ export class DataService {
       .filter((card) => card.snippet.title.toLowerCase()
         .includes(text.toLowerCase()));
     if (text === '')filteredArr = this.findingCards;
-    this.data.next(filteredArr);
+    this.store.dispatch(setFilteredVideos({filteredArr}))
   }
 
   showSettings() {

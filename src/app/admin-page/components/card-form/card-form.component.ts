@@ -3,6 +3,10 @@ import {
   FormControl, FormGroup, FormGroupDirective, Validators,
 } from '@angular/forms';
 import { DateValidator } from '../../utils/validator';
+import { addCustomCard } from 'src/app/redux/actions';
+import { Store } from '@ngrx/store';
+import { IState } from 'src/app/redux/reducers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-form',
@@ -21,12 +25,12 @@ export class CardFormComponent implements OnDestroy {
 
   succesSubmit = false
 
-  constructor() {
+  constructor(private store: Store<{ cards:IState }>,  private router:Router) {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       description: new FormControl('', [Validators.maxLength(255)]),
-      img: new FormControl('', [Validators.required, Validators.pattern(this.URLRegex)]),
-      link: new FormControl('', [Validators.required, Validators.pattern(this.URLRegex)]),
+      img: new FormControl('', [Validators.required]),
+      link: new FormControl('', [Validators.required]),
       date: new FormControl('', [Validators.required, DateValidator()]),
     });
   }
@@ -35,11 +39,14 @@ export class CardFormComponent implements OnDestroy {
     this.isSubmitted = true;
     if (!this.form.invalid) {
       this.succesSubmit = true;
+      this.form.value.id = Date.now()
+      this.store.dispatch(addCustomCard({card:this.form.value}));
       setTimeout(() => {
         this.succesSubmit = false;
         this.isSubmitted = false;
         this.form.reset();
         this.formGroupDirective.resetForm();
+        this.router.navigate(['main']);
       }, 2000);
     }
   }
