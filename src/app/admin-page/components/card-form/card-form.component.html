@@ -36,7 +36,7 @@
             <mat-error *ngIf="form.controls['img'].errors?.['required'] ">
               Please add link
             </mat-error>
-              <mat-error *ngIf="form.controls['img'].errors?.['pattern']">
+              <mat-error *ngIf="form.controls['img'].errors?.['URLValid']">
               Link is invalid
             </mat-error>
           </mat-form-field>
@@ -50,7 +50,7 @@
           <mat-error *ngIf="form.controls['link'].errors?.['required']">
             Please enter a link to video
           </mat-error>
-          <mat-error *ngIf="form.controls['link'].errors?.['pattern']">
+          <mat-error *ngIf="form.controls['link'].errors?.['URLValid']">
             Link is incorrect
           </mat-error>
         </mat-form-field>

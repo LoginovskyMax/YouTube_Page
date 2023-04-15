@@ -8,3 +8,17 @@ export function DateValidator(): ValidatorFn {
     return today <= value ? { dateValid: true } : null;
   };
 }
+
+export function URLValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors|null => {
+    let isValid = false
+    try{
+      const value = new URL(control.value);
+      isValid = true
+    }
+    catch{
+      isValid = false
+    }
+    return !isValid ? { URLValid: true } : null;
+  };
+}
