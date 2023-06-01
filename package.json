@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "eslint --ext .js,.ts . --fix",
-    "deploy": "ng deploy --base-href=https://rolling-scopes-school.github.io/loginovskymax-ANGULAR2023Q1/"
+    "deploy": "ng deploy --base-href=https://LoginovskyMax.github.io/YouTube_Page/"
   },
   "private": true,
   "dependencies": {
